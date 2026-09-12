@@ -20,3 +20,19 @@ resource "azurerm_firewall" "nidhi_firewall" {
     public_ip_address_id = azurerm_public_ip.nidhi_firewall_pip.id
   }
 }
+
+resource "azurerm_firewall_network_rule_collection" "allow_spoke_https" {
+  name                = "${var.env}-allow-spoke-https"
+  azure_firewall_name = azurerm_firewall.nidhi_firewall.name
+  resource_group_name = azurerm_resource_group.nidhirg.name
+  priority            = 100
+  action              = "Allow"
+
+  rule {
+    name                  = "${var.env}-spoke-https-outbound"
+    protocols             = ["TCP"]
+    source_addresses      = ["10.1.0.0/24"]
+    destination_addresses = ["*"]
+    destination_ports     = ["443"]
+  }
+}
