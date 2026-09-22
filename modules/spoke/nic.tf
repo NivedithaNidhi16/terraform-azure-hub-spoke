@@ -6,6 +6,7 @@ resource "azurerm_network_interface" "nidhi_spoke_nic" {
   ip_configuration {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.nidhi_spoke_subnet.id
-    private_ip_address_allocation = "Dynamic"
+    private_ip_address_allocation = "Static"
+    private_ip_address            = "10.1.0.4"
   }
 }

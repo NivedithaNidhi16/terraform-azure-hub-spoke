@@ -16,5 +16,5 @@ resource "azurerm_route" "spoke_to_firewall" {
   route_table_name       = azurerm_route_table.nidhi_spoke_rt.name
   address_prefix         = "0.0.0.0/0"
   next_hop_type          = "VirtualAppliance"
-  next_hop_in_ip_address = "10.0.1.4"
+  next_hop_in_ip_address = var.firewall_private_ip
 }

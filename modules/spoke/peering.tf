@@ -5,4 +5,5 @@ resource "azurerm_virtual_network_peering" "spoke_to_hub" {
   remote_virtual_network_id = var.hub_vnet_id
 
   allow_virtual_network_access = true
+  allow_forwarded_traffic = true
 }

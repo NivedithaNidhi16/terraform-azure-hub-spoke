@@ -12,7 +12,10 @@ resource "azurerm_linux_virtual_machine" "nidhi_spoke_vm" {
   network_interface_ids = [
     azurerm_network_interface.nidhi_spoke_nic.id
   ]
-
+    identity {
+    type = "SystemAssigned"
+  }
+  
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"

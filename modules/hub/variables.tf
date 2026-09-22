@@ -24,3 +24,8 @@ variable "spoke_vnet_id" {
   type        = string
   description = "Resource ID of the Spoke VNet"
 }
+
+variable "spoke_vm_private_ip" {
+  type        = string
+  description = "Private IP address of the Spoke VM"
+}

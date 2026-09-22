@@ -5,4 +5,6 @@ resource "azurerm_key_vault" "nidhi_spoke_kv" {
   tenant_id           = var.tenant
 
   sku_name = "standard"
+  enable_rbac_authorization       = true
+  public_network_access_enabled   = false
 }
