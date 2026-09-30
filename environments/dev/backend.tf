@@ -7,4 +7,3 @@ terraform {
   }
 }
 
-#totrigger pipeline
